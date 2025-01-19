@@ -19,6 +19,28 @@ def porcentaje(A,B):
 
         return porcentaje
 
+def calcular_descuento_total(porcentajes_descuento):
+    valor_inicial = 100  # Empezamos con un valor base de 100 para simplificar el cálculo
+    valor_final = valor_inicial
+    
+    # Aplicamos los descuentos escalonados
+    for porcentaje in porcentajes_descuento:
+        valor_final *= (1 - porcentaje / 100)
+    
+    # Calcular el descuento total en valor y el porcentaje final
+    descuento_total = valor_inicial - valor_final
+    porcentaje_total = (descuento_total / valor_inicial) * 100
+    
+    # Redondear el resultado a dos decimales
+    return round(porcentaje_total, 2)
+
+# Ejemplo de uso
+porcentajes_descuento = [10, 10]  # Descuentos del 10% y 10%
+
+porcentaje_total = calcular_descuento_total(porcentajes_descuento)
+
+print(f"Porcentaje total de descuento aplicado: {porcentaje_total}%")
+
 
 ##############################################################################
 
