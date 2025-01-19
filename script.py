@@ -35,7 +35,7 @@ def calcular_descuento_total(porcentajes_descuento):
     return round(porcentaje_total, 2)
 
 # Ejemplo de uso
-porcentajes_descuento = [10, 10]  # Descuentos del 10% y 10%
+porcentajes_descuento = [10, 20]  # Descuentos del 10% y 10%
 
 porcentaje_total = calcular_descuento_total(porcentajes_descuento)
 
@@ -47,7 +47,8 @@ print(f"Porcentaje total de descuento aplicado: {porcentaje_total}%")
 while True:
     print("1- Diferencia porcentual entre A y B")
     print("2- Que porcentaje es A de B")
-    print("3- Salir")
+    print("3- Calcular descuento total")
+    print("4- Salir")
     opcion = input("Ingrese una opcion: ")
     if opcion == "1":
         A = float(input("Ingrese el valor: "))
@@ -60,6 +61,11 @@ while True:
         resultado = porcentaje (A, B)
         print(f"El  porcentual es: {resultado:.2f}%")
     elif opcion == "3":
+        # Solicitar los porcentajes de descuento
+        porcentajes_descuento = list(map(float, input("Ingrese los porcentajes de descuento separados por coma: ").split(',')))
+        porcentaje_total = calcular_descuento_total(porcentajes_descuento)
+        print(f"Porcentaje total de descuento aplicado: {porcentaje_total}%")
+    elif opcion == "4":
         print("adiós")
         break
     else:
